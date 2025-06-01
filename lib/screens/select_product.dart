@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:invoice_gen/models/product_model.dart';
 
 class SelectProduct extends StatefulWidget {
   const SelectProduct({super.key});
@@ -19,8 +20,6 @@ class _SelectProductState extends State<SelectProduct> {
     Product(name: 'Headphones', price: 3500.00),
     Product(name: 'Mouse', price: 1200.00),
     Product(name: 'Keyboard', price: 2800.00),
-    Product(name: 'Monitor', price: 18000.00),
-    Product(name: 'Webcam', price: 4500.00),
   ];
 
   bool _isGeneratingPDF = false;
