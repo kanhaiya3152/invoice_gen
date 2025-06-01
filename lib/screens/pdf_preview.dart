@@ -7,7 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class PDFPreviewScreen extends StatefulWidget {
   final File pdfFile;
-  const PDFPreviewScreen({super.key,required this.pdfFile});
+  const PDFPreviewScreen({super.key, required this.pdfFile});
 
   @override
   State<PDFPreviewScreen> createState() => _PDFPreviewScreenState();
@@ -32,9 +32,9 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
           }
         }
       }
-                                                                      
+
       await PDFService.savePDFToDownloads(widget.pdfFile);
-      
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -122,7 +122,7 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
               ),
             ),
           ),
-          
+
           Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
@@ -146,7 +146,8 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
                             height: 16,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white),
                             ),
                           )
                         : const Icon(Icons.download),
@@ -161,9 +162,9 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
                     ),
                   ),
                 ),
-                
+
                 const SizedBox(width: 16),
-                
+
                 // Share Button
                 Expanded(
                   child: ElevatedButton.icon(
@@ -174,7 +175,8 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
                             height: 16,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white),
                             ),
                           )
                         : const Icon(Icons.share),

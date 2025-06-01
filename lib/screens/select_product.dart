@@ -192,8 +192,8 @@ class _SelectProductState extends State<SelectProduct> {
                       TextFormField(
                         controller: _nameController,
                         decoration: InputDecoration(
-                          labelText: 'Full Name',
-                          hintText: 'Enter your full name',
+                          labelText: 'Name',
+                          hintText: 'Enter your name',
                           prefixIcon: const Icon(Icons.person),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),

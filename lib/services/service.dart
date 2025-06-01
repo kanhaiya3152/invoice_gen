@@ -168,7 +168,7 @@ class PDFService {
                 width: double.infinity,
                 padding: const pw.EdgeInsets.all(10),
                 child: pw.Text(
-                  'Thank you for your business!',
+                  'Thank you!',
                   style: const pw.TextStyle(fontSize: 12),
                   textAlign: pw.TextAlign.center,
                 ),
