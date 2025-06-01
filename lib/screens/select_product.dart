@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_gen/models/product_model.dart';
+import 'package:invoice_gen/screens/pdf_preview.dart';
+import 'package:invoice_gen/services/service.dart';
 
 class SelectProduct extends StatefulWidget {
   const SelectProduct({super.key});
@@ -13,13 +15,12 @@ class _SelectProductState extends State<SelectProduct> {
   final TextEditingController _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  // Hardcoded products
   final List<Product> _products = [
-    Product(name: 'Laptop', price: 45000.00),
-    Product(name: 'Smartphone', price: 25000.00),
-    Product(name: 'Headphones', price: 3500.00),
-    Product(name: 'Mouse', price: 1200.00),
-    Product(name: 'Keyboard', price: 2800.00),
+    Product(name: 'Laptop', price: 85000),
+    Product(name: 'Smartphone', price: 25000),
+    Product(name: 'Headphones', price: 3500),
+    Product(name: 'Freeze', price: 20000),
+    Product(name: 'AC', price: 30000),
   ];
 
   bool _isGeneratingPDF = false;
@@ -121,7 +122,7 @@ class _SelectProductState extends State<SelectProduct> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      ...._products.map((product) => CheckboxListTile(
+                      ..._products.map((product) => CheckboxListTile(
                         title: Text(
                           product.name,
                           style: const TextStyle(fontWeight: FontWeight.w500),
