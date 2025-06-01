@@ -106,7 +106,6 @@ class _SelectProductState extends State<SelectProduct> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Products Section
               Card(
                 elevation: 4,
                 child: Padding(
@@ -174,7 +173,6 @@ class _SelectProductState extends State<SelectProduct> {
               
               const SizedBox(height: 20),
               
-              // User Information Section
               Card(
                 elevation: 4,
                 child: Padding(
@@ -247,7 +245,6 @@ class _SelectProductState extends State<SelectProduct> {
               
               const SizedBox(height: 30),
               
-              // Generate PDF Button
               SizedBox(
                 width: double.infinity,
                 height: 50,

@@ -12,7 +12,6 @@ class PDFService {
   }) async {
     final pdf = pw.Document();
 
-    // Calculate total
     double total = selectedProducts.fold(0, (sum, product) => sum + product.price);
 
     pdf.addPage(
@@ -22,7 +21,6 @@ class PDFService {
           return pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              // Header
               pw.Container(
                 width: double.infinity,
                 padding: const pw.EdgeInsets.all(20),
@@ -52,7 +50,6 @@ class PDFService {
               
               pw.SizedBox(height: 30),
               
-              // Customer Information
               pw.Container(
                 padding: const pw.EdgeInsets.all(15),
                 decoration: pw.BoxDecoration(
@@ -79,7 +76,6 @@ class PDFService {
               
               pw.SizedBox(height: 30),
               
-              // Products Table
               pw.Text(
                 'Items:',
                 style: pw.TextStyle(
@@ -97,7 +93,6 @@ class PDFService {
                   1: pw.FlexColumnWidth(1),
                 },
                 children: [
-                  // Header
                   pw.TableRow(
                     decoration: const pw.BoxDecoration(color: PdfColors.grey200),
                     children: [
@@ -118,7 +113,6 @@ class PDFService {
                       ),
                     ],
                   ),
-                  // Products
                   ...selectedProducts.map((product) => pw.TableRow(
                     children: [
                       pw.Padding(
@@ -139,7 +133,6 @@ class PDFService {
               
               pw.SizedBox(height: 20),
               
-              // Total
               pw.Container(
                 width: double.infinity,
                 padding: const pw.EdgeInsets.all(15),
@@ -171,7 +164,6 @@ class PDFService {
               
               pw.Spacer(),
               
-              // Footer
               pw.Container(
                 width: double.infinity,
                 padding: const pw.EdgeInsets.all(10),
@@ -187,7 +179,6 @@ class PDFService {
       ),
     );
 
-    // Save PDF to temporary directory
     final output = await getTemporaryDirectory();
     final file = File('${output.path}/invoice_${DateTime.now().millisecondsSinceEpoch}.pdf');
     await file.writeAsBytes(await pdf.save());

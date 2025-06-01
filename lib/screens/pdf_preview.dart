@@ -7,8 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class PDFPreviewScreen extends StatefulWidget {
   final File pdfFile;
-
-  const PDFPreviewScreen({Key? key, required this.pdfFile}) : super(key: key);
+  const PDFPreviewScreen({super.key,required this.pdfFile});
 
   @override
   State<PDFPreviewScreen> createState() => _PDFPreviewScreenState();
@@ -33,7 +32,7 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
           }
         }
       }
-
+                                                                      
       await PDFService.savePDFToDownloads(widget.pdfFile);
       
       if (mounted) {
@@ -70,6 +69,7 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
     });
 
     try {
+      // ignore: deprecated_member_use
       await Share.shareXFiles(
         [XFile(widget.pdfFile.path)],
         text: 'Invoice PDF',
@@ -123,7 +123,6 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
             ),
           ),
           
-          // Action Buttons
           Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
@@ -138,7 +137,6 @@ class _PDFPreviewScreenState extends State<PDFPreviewScreen> {
             ),
             child: Row(
               children: [
-                // Download Button
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: _isDownloading ? null : _downloadPDF,
